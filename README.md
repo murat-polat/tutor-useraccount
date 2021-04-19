@@ -1,4 +1,3 @@
-# Warning Not finished yet !!!!
 
 ## MFE plugin for frontend-app-account
 
