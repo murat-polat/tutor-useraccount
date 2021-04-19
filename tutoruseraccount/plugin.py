@@ -5,7 +5,7 @@ import pkg_resources
 from .__about__ import __version__
 
 templates = pkg_resources.resource_filename(
-    "tutorauthn", "templates"
+    "tutoruseraccount", "templates"
 )
 
 config = {
@@ -15,17 +15,17 @@ config = {
     },
 
     "defaults": {
-        "HOST": "{{ LMS_HOST }}:1999",
+        "HOST": "{{ LMS_HOST }}:1997",
         "DOCKER_REGISTRY": "{{ DOCKER_REGISTRY }}",
-        "DOCKER_IMAGE": "muratp/authn",
+        "DOCKER_IMAGE": "muratp/useraccount",
           }
 }
 
 hooks = {
 
-    "init": ["lms","authn"],
-    "build-image": {"authn": "muratp/authn"},
-    "remote-image": {"authn": "muratp/authn"},
+    "init": ["lms","useraccount"],
+    "build-image": {"useraccount": "muratp/useraccount"},
+    "remote-image": {"useraccount": "muratp/useraccount"},
    
 }
 
@@ -33,7 +33,7 @@ hooks = {
 def patches():
     all_patches = {}
     patches_dir = pkg_resources.resource_filename(
-        "tutorauthn", "patches"
+        "tutoruseraccount", "patches"
     )
     for path in glob(os.path.join(patches_dir, "*")):
         with open(path) as patch_file:
